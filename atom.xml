@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  
+  <title><![CDATA[Diary of a Chump]]></title>
+  <subtitle><![CDATA[sdgluck's blog]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="sdgluck.github.io//"/>
+  <updated>2015-07-13T13:55:55.660Z</updated>
+  <id>sdgluck.github.io//</id>
+  
+  <author>
+    <name><![CDATA[Sam Gluck]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[hello]]></title>
+    <link href="sdgluck.github.io/2015/07/13/hello/"/>
+    <id>sdgluck.github.io/2015/07/13/hello/</id>
+    <published>2015-07-13T13:55:09.000Z</published>
+    <updated>2015-07-13T13:55:55.660Z</updated>
+    <content type="html"><![CDATA[<p>Hello!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Hello!</p>
+]]>
+    </summary>
+    
+  </entry>
+  
+</feed>
