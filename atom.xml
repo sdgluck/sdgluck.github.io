@@ -5,7 +5,7 @@
   <subtitle><![CDATA[sdgluck's blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="sdgluck.github.io//"/>
-  <updated>2015-07-13T13:55:55.660Z</updated>
+  <updated>2015-07-13T15:21:15.558Z</updated>
   <id>sdgluck.github.io//</id>
   
   <author>
@@ -16,17 +16,30 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[hello]]></title>
-    <link href="sdgluck.github.io/2015/07/13/hello/"/>
-    <id>sdgluck.github.io/2015/07/13/hello/</id>
+    <title><![CDATA[Promises are Fucking Weird]]></title>
+    <link href="sdgluck.github.io/2015/07/13/promises/"/>
+    <id>sdgluck.github.io/2015/07/13/promises/</id>
     <published>2015-07-13T13:55:09.000Z</published>
-    <updated>2015-07-13T13:55:55.660Z</updated>
-    <content type="html"><![CDATA[<p>Hello!</p>
+    <updated>2015-07-13T15:21:15.558Z</updated>
+    <content type="html"><![CDATA[<p><code>Promise</code>s are confusing… And although I’m talking about the kind we use in JavaScript to encapsulate asynchronous functionality, you might find yourself wishing you could break them, just as you might break a promise in the real world: because they are inconvenient. Let’s talk about why any JavaScript programmer <em>needs</em> to consider using <code>Promise</code>s and why, after learning their perks, you’ll be making them left, right, and centre (JavaScript promises, that is).</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>(readThisArticle).then(understandPromises);</span><br></pre></td></tr></table></figure>
+<p><strong>Hey Joe, “Who asked you to make <code>Promise</code>s anyway?”</strong></p>
+<p>In anyone’s time as a JavaScript programmer they will have been introduced to all sorts of weird and wonderful idiosyncrasies. Some make you laugh, some make you cry. Either way, you have to embrace them and put these issues down to growing pains. JavaScript as a language is still in it’s infancy when you look at how only very recently it has moved from being a cute client-side scripting language to a full-stack solution, now in the driving seat both on our PCs and on the web. </p>
+<p>Scripting web applications using JavaScript’s ‘asynchronicity’ whilst ourselves being fundamentally procedural beings — we think about one thing at a time — requires tools that realign our machine counterparts to our linear plane of understanding. And so, with this, we have seen the JavaScript community quickly adapt from the juvenile and confusing ‘callback hell’ to a more succinct solution: <code>Promise</code>s, borne of the desire to flatten asynchronous code, which makes it easier to read, which makes it easier to maintain, which makes it BETTER.</p>
+<p><strong>Well alright then Joe, but what <em>is</em> a <code>Promise</code>?</strong></p>
+<p>Just as in the real world a promise can be <em>fulfilled</em> or <em>broken</em>, so too can a <code>Promise</code>. A <code>Promise</code> represents ‘work to be done’ and each maintains state in regards to this work. The work can be <em>anything</em>. It’s important to note that a <code>Promise</code> can encapsulate <em>any</em> functionality, asynchronnous or not. Any <code>Promise</code> implementation will provide an interface for </p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>Hello!</p>
-]]>
+    <![CDATA[<p><code>Promise</code>s are confusing… And although I’m talking about the kind we use in JavaScript to encapsulate asynchronous functionali]]>
     </summary>
+    
+      <category term="Discussion" scheme="sdgluck.github.io/tags/Discussion/"/>
+    
+      <category term="JavaScript" scheme="sdgluck.github.io/tags/JavaScript/"/>
+    
+      <category term="Promises" scheme="sdgluck.github.io/tags/Promises/"/>
+    
+      <category term="Tutorial" scheme="sdgluck.github.io/tags/Tutorial/"/>
     
   </entry>
   

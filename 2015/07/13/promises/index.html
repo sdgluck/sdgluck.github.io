@@ -5,15 +5,15 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Diary of a Chump">
-    <title>hello - Diary of a Chump</title>
+    <title>Promises are Fucking Weird - Diary of a Chump</title>
     <meta name="author" content="Sam Gluck">
     <meta name="description" content="Diary of a Chump">
-    <link rel="icon" href="../../../../assets/images/me.jpg">
+    <link rel="icon" href="/assets/images/me.jpg">
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="atom.xml">
     
     <!--STYLES-->
-    <link rel="stylesheet" href="../../../../assets/css/style.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
     <!--STYLES END-->
     
 </head>
@@ -26,17 +26,17 @@
         <a class="header-title-link" href="sdgluck.github.io">Diary of a Chump</a>
     </h1>
     
-        <a class="header-right-picture" href="../../../../#about">
-            <img class="header-picture" src="../../../../assets/images/me.jpg"/>
+        <a class="header-right-picture" href="/#about">
+            <img class="header-picture" src="/assets/images/me.jpg"/>
         </a>
     
 </header>
             <nav id="sidebar" data-behavior="1">
     
     <div class="sidebar-profile">
-        <a href="../../../../#about">
+        <a href="/#about">
             
-            <img class="sidebar-profile-picture" src="../../../../assets/images/me.jpg"/>
+            <img class="sidebar-profile-picture" src="/assets/images/me.jpg"/>
             
         </a>
         <span class="sidebar-profile-name">Sam Gluck</span>
@@ -47,7 +47,7 @@
         
         <li class="sidebar-button">
             
-                <a  class="sidebar-button-link " href="../../../../index.html">
+                <a  class="sidebar-button-link " href="/">
             
                     <i class="sidebar-button-icon fa fa-lg fa-home"></i>
                     <span class="sidebar-button-desc">Home</span>
@@ -56,7 +56,7 @@
         
         <li class="sidebar-button">
             
-                <a  class="sidebar-button-link " href="../../../../all-tags">
+                <a  class="sidebar-button-link " href="/all-tags">
             
                     <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
                     <span class="sidebar-button-desc">Tags</span>
@@ -65,7 +65,7 @@
         
         <li class="sidebar-button">
             
-                <a  class="sidebar-button-link " href="../../../../#about">
+                <a  class="sidebar-button-link " href="/#about">
             
                     <i class="sidebar-button-icon fa fa-lg fa-question"></i>
                     <span class="sidebar-button-desc">About me</span>
@@ -100,7 +100,7 @@
         
         <li class="sidebar-button">
             
-                <a  class="sidebar-button-link " href="../../../../atom.xml">
+                <a  class="sidebar-button-link " href="/atom.xml">
             
                     <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
                     <span class="sidebar-button-desc">RSS</span>
@@ -116,7 +116,7 @@
     
         <div class="post-header main-content-wrap">
     
-        <h1 class="post-title" itemprop="headline">hello</h1>
+        <h1 class="post-title" itemprop="headline">Promises are Fucking Weird</h1>
     
     <div class="post-meta">
     <time  itemprop="datePublished" content="Mon Jul 13 2015 14:55:09 GMT+0100">
@@ -127,13 +127,26 @@
 </div>
     
     <div class="post-content markdown main-content-wrap" itemprop="articleBody">
-        <p>Hello!</p>
+        <p><code>Promise</code>s are confusing… And although I’m talking about the kind we use in JavaScript to encapsulate asynchronous functionality, you might find yourself wishing you could break them, just as you might break a promise in the real world: because they are inconvenient. Let’s talk about why any JavaScript programmer <em>needs</em> to consider using <code>Promise</code>s and why, after learning their perks, you’ll be making them left, right, and centre (JavaScript promises, that is).</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>(readThisArticle).then(understandPromises);</span><br></pre></td></tr></table></figure>
+<p><strong>Hey Joe, “Who asked you to make <code>Promise</code>s anyway?”</strong></p>
+<p>In anyone’s time as a JavaScript programmer they will have been introduced to all sorts of weird and wonderful idiosyncrasies. Some make you laugh, some make you cry. Either way, you have to embrace them and put these issues down to growing pains. JavaScript as a language is still in it’s infancy when you look at how only very recently it has moved from being a cute client-side scripting language to a full-stack solution, now in the driving seat both on our PCs and on the web. </p>
+<p>Scripting web applications using JavaScript’s ‘asynchronicity’ whilst ourselves being fundamentally procedural beings — we think about one thing at a time — requires tools that realign our machine counterparts to our linear plane of understanding. And so, with this, we have seen the JavaScript community quickly adapt from the juvenile and confusing ‘callback hell’ to a more succinct solution: <code>Promise</code>s, borne of the desire to flatten asynchronous code, which makes it easier to read, which makes it easier to maintain, which makes it BETTER.</p>
+<p><strong>Well alright then Joe, but what <em>is</em> a <code>Promise</code>?</strong></p>
+<p>Just as in the real world a promise can be <em>fulfilled</em> or <em>broken</em>, so too can a <code>Promise</code>. A <code>Promise</code> represents ‘work to be done’ and each maintains state in regards to this work. The work can be <em>anything</em>. It’s important to note that a <code>Promise</code> can encapsulate <em>any</em> functionality, asynchronnous or not. Any <code>Promise</code> implementation will provide an interface for </p>
 
         
             
         
     </div>
     <div class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Discussion/">Discussion</a> <a class="tag tag--primary tag--small t-link" href="/tags/JavaScript/">JavaScript</a> <a class="tag tag--primary tag--small t-link" href="/tags/Promises/">Promises</a> <a class="tag tag--primary tag--small t-link" href="/tags/Tutorial/">Tutorial</a>
+
+            </div>
         
         <div class="post-actions-wrap">
     <nav>
@@ -158,17 +171,17 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=sdgluck.github.io/2015/07/13/hello/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=sdgluck.github.io/2015/07/13/promises/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=sdgluck.github.io/2015/07/13/hello/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=sdgluck.github.io/2015/07/13/promises/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=sdgluck.github.io/2015/07/13/hello/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=sdgluck.github.io/2015/07/13/promises/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -221,17 +234,17 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=sdgluck.github.io/2015/07/13/hello/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=sdgluck.github.io/2015/07/13/promises/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=sdgluck.github.io/2015/07/13/hello/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=sdgluck.github.io/2015/07/13/promises/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=sdgluck.github.io/2015/07/13/hello/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=sdgluck.github.io/2015/07/13/promises/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -255,7 +268,7 @@
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="../../../../assets/images/me.jpg"/>
+            <img id="about-card-picture" src="/assets/images/me.jpg"/>
         
             <h4 id="about-card-name">Sam Gluck</h4>
         
@@ -279,7 +292,7 @@
         <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
     </body>
     <!--SCRIPTS-->
-<script src="../../../../assets/js/script.min.js" type="text/javascript"></script>
+<script src="/assets/js/script.min.js" type="text/javascript"></script>
 <!--SCRIPTS END-->
 
 
