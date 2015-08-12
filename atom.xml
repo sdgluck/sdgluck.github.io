@@ -5,7 +5,7 @@
   <subtitle><![CDATA[sdgluck's blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="sdgluck.github.io//"/>
-  <updated>2015-08-12T16:28:54.159Z</updated>
+  <updated>2015-08-12T16:30:18.989Z</updated>
   <id>sdgluck.github.io//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="sdgluck.github.io/2015/08/12/key-mirrors/"/>
     <id>sdgluck.github.io/2015/08/12/key-mirrors/</id>
     <published>2015-08-12T16:16:00.000Z</published>
-    <updated>2015-08-12T16:28:54.159Z</updated>
+    <updated>2015-08-12T16:30:18.989Z</updated>
     <content type="html"><![CDATA[<p>It is very likely that in your day-to-day JavaScript programming you will have encountered the problem that is ‘how can I maintain a collection of constants in the form of string literals, and reference these strings by a name?’ If you have posed this question, and are still waiting for an answer, then I am happy to give it to you: key mirrors.</p>
 <h2 id="What_is_a_key_mirror?">What is a key mirror?</h2><p>A key mirror is an object where for each property, the key is the same as the value. They are most useful as a collection of constants that ‘give back’ their own definition, and many languages already provide an integrated solution for this behaviour in the form of an <a href="https://en.wikipedia.org/wiki/Enumerated_type" target="_blank" rel="external">enum</a>. Unfortunately, JavaScript doesn’t… so we use ‘key mirrors’ instead.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    SOME_USEFUL_CONST: <span class="string">'SOME_USEFUL_CONST'</span>,</span><br><span class="line">    ANOTHER_USEFUL_CONST: <span class="string">'ANOTHER_USEFUL_CONST'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -36,7 +36,7 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rgb = &#123;red: <span class="string">'red'</span>, green: <span class="string">'green'</span>, blue: <span class="string">'blue'</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> colour = rgb.red;</span><br><span class="line"><span class="keyword">var</span> legalValue = !!rgb[value];</span><br></pre></td></tr></table></figure>
 <h2 id="How_do_I_create_a_key_mirror?">How do I create a key mirror?</h2><p>As always, there is more than one solution. So here are a few… take your pick!</p>
-<h3 id="Using_React">Using React</h3><p>The React library comes packaged with a key mirror helper module, <code>react/addons/keyMirror</code>.</p>
+<h3 id="Using_React">Using React</h3><p>The React library comes packaged with a key mirror helper module, <code>react/utils/keyMirror</code>.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> keyMirror = <span class="built_in">require</span>(<span class="string">'react/utils/keyMirror'</span>);</span><br><span class="line"><span class="keyword">var</span> consts = &#123;</span><br><span class="line">    FIRST_KEY: <span class="literal">true</span>,</span><br><span class="line">    SECOND_KEY: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> mirror = keyMirror(consts);</span><br><span class="line"><span class="built_in">console</span>.log(mirror); <span class="comment">// &#123;FIRST_KEY: 'FIRST_KEY', SECOND_KEY: 'SECOND_KEY'&#125;</span></span><br></pre></td></tr></table></figure>
 <p>But if you aren’t using React, it’s easy to build your own:</p>
 <h3 id="Using_lodash:">Using lodash:</h3><p>We can use the <code>_.reduce</code> method to take any Object or Array and create a key mirror from it. In the case of an Array, we take each element and use its value as the key and value. For an Object we do the same by first using the <code>Object.keys</code> method, which (unsurprisngly) returns an Array of an object’s keys.</p>
