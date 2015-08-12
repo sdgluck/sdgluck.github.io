@@ -5,7 +5,7 @@
   <subtitle><![CDATA[sdgluck's blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="sdgluck.github.io//"/>
-  <updated>2015-08-12T16:16:58.436Z</updated>
+  <updated>2015-08-12T16:21:58.751Z</updated>
   <id>sdgluck.github.io//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="sdgluck.github.io/2015/08/12/key-mirrors/"/>
     <id>sdgluck.github.io/2015/08/12/key-mirrors/</id>
     <published>2015-08-12T16:16:00.000Z</published>
-    <updated>2015-08-12T16:16:58.436Z</updated>
+    <updated>2015-08-12T16:21:58.751Z</updated>
     <content type="html"><![CDATA[<p>It is very likely that in your day-to-day JavaScript programming you will have encountered the problem that is ‘how can I maintain a collection of constants in the form of string literals, and reference these strings by a name?’ If you have posed this question, and are still waiting for an answer, then I am happy to give it to you: key mirrors.</p>
 <h2 id="What_is_a_key_mirror?">What is a key mirror?</h2><p>A key mirror is an object where for each property, the key is the same as the value. They are most useful as a collection of constants that ‘give back’ their own definition, and many languages already provide an integrated solution for this behaviour in the form of an <a href="https://en.wikipedia.org/wiki/Enumerated_type" target="_blank" rel="external">enum</a>. Unfortunately, JavaScript doesn’t… so we use ‘key mirrors’ instead.</p>
 <pre><code>{
@@ -31,8 +31,6 @@
 <ul>
 <li>You want your IDE to auto-complete string literals that are common in your code. Introducing key mirrors for this purpose will help you avoid nasty typos that are inevitable, especially if you are working with a team of developers.</li>
 <li>You find yourself typing multiple string literals more than once, and they serve a common purpose.</li>
-</ul>
-<ul>
 <li><p>You want to easily check that a value is ‘legal’.</p>
 <pre><code><span class="keyword">var</span> rgb = {red: <span class="string">'red'</span>, green: <span class="string">'green'</span>, blue: <span class="string">'blue'</span>};
 <span class="keyword">var</span> colour = rgb.red;
@@ -41,7 +39,7 @@
 </ul>
 <h2 id="How_do_I_create_a_key_mirror?">How do I create a key mirror?</h2><p>As always, there is more than one solution. So here are a few… take your pick!</p>
 <h3 id="Using_React">Using React</h3><p>The React library comes packaged with a key mirror helper module, <code>react/addons/keyMirror</code>.</p>
-<pre><code><span class="reserved">var</span> keyMirror = <span class="built_in">require</span>(<span class="string">'react/addons/keyMirror'</span>);
+<pre><code><span class="reserved">var</span> keyMirror = <span class="built_in">require</span>(<span class="string">'react/utils/keyMirror'</span>);
 <span class="reserved">var</span> consts = {
     <span class="attribute">FIRST_KEY</span>: <span class="literal">true</span>,
     <span class="attribute">SECOND_KEY</span>: <span class="literal">true</span>
@@ -72,7 +70,11 @@
     <![CDATA[<p>It is very likely that in your day-to-day JavaScript programming you will have encountered the problem that is ‘how can I maintain a coll]]>
     </summary>
     
-      <category term="node, javascript, key mirror" scheme="sdgluck.github.io/tags/node-javascript-key-mirror/"/>
+      <category term="javascript" scheme="sdgluck.github.io/tags/javascript/"/>
+    
+      <category term="key mirror" scheme="sdgluck.github.io/tags/key-mirror/"/>
+    
+      <category term="node" scheme="sdgluck.github.io/tags/node/"/>
     
   </entry>
   

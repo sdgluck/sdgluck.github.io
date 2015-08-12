@@ -137,8 +137,6 @@
 <ul>
 <li>You want your IDE to auto-complete string literals that are common in your code. Introducing key mirrors for this purpose will help you avoid nasty typos that are inevitable, especially if you are working with a team of developers.</li>
 <li>You find yourself typing multiple string literals more than once, and they serve a common purpose.</li>
-</ul>
-<ul>
 <li><p>You want to easily check that a value is ‘legal’.</p>
 <pre><code><span class="keyword">var</span> rgb = {red: <span class="string">'red'</span>, green: <span class="string">'green'</span>, blue: <span class="string">'blue'</span>};
 <span class="keyword">var</span> colour = rgb.red;
@@ -147,7 +145,7 @@
 </ul>
 <h2 id="How_do_I_create_a_key_mirror?">How do I create a key mirror?</h2><p>As always, there is more than one solution. So here are a few… take your pick!</p>
 <h3 id="Using_React">Using React</h3><p>The React library comes packaged with a key mirror helper module, <code>react/addons/keyMirror</code>.</p>
-<pre><code><span class="reserved">var</span> keyMirror = <span class="built_in">require</span>(<span class="string">'react/addons/keyMirror'</span>);
+<pre><code><span class="reserved">var</span> keyMirror = <span class="built_in">require</span>(<span class="string">'react/utils/keyMirror'</span>);
 <span class="reserved">var</span> consts = {
     <span class="attribute">FIRST_KEY</span>: <span class="literal">true</span>,
     <span class="attribute">SECOND_KEY</span>: <span class="literal">true</span>
@@ -198,7 +196,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/node-javascript-key-mirror/">node, javascript, key mirror</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/javascript/">javascript</a> <a class="tag tag--primary tag--small t-link" href="/tags/key-mirror/">key mirror</a> <a class="tag tag--primary tag--small t-link" href="/tags/node/">node</a>
 
             </div>
         
