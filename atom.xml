@@ -5,7 +5,7 @@
   <subtitle><![CDATA[sdgluck's blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="sdgluck.github.io//"/>
-  <updated>2015-08-12T16:30:18.989Z</updated>
+  <updated>2015-08-12T16:33:03.269Z</updated>
   <id>sdgluck.github.io//</id>
   
   <author>
@@ -20,13 +20,13 @@
     <link href="sdgluck.github.io/2015/08/12/key-mirrors/"/>
     <id>sdgluck.github.io/2015/08/12/key-mirrors/</id>
     <published>2015-08-12T16:16:00.000Z</published>
-    <updated>2015-08-12T16:30:18.989Z</updated>
+    <updated>2015-08-12T16:33:03.269Z</updated>
     <content type="html"><![CDATA[<p>It is very likely that in your day-to-day JavaScript programming you will have encountered the problem that is ‘how can I maintain a collection of constants in the form of string literals, and reference these strings by a name?’ If you have posed this question, and are still waiting for an answer, then I am happy to give it to you: key mirrors.</p>
 <h2 id="What_is_a_key_mirror?">What is a key mirror?</h2><p>A key mirror is an object where for each property, the key is the same as the value. They are most useful as a collection of constants that ‘give back’ their own definition, and many languages already provide an integrated solution for this behaviour in the form of an <a href="https://en.wikipedia.org/wiki/Enumerated_type" target="_blank" rel="external">enum</a>. Unfortunately, JavaScript doesn’t… so we use ‘key mirrors’ instead.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    SOME_USEFUL_CONST: <span class="string">'SOME_USEFUL_CONST'</span>,</span><br><span class="line">    ANOTHER_USEFUL_CONST: <span class="string">'ANOTHER_USEFUL_CONST'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="When_should_I_use_a_key_mirror?">When should I use a key mirror?</h2><p>Key mirrors are useful for a number of reasons of course, so here are some use-cases where key mirrors will help you out:</p>
 <ul>
-<li>You want your IDE to auto-complete string literals that are common in your code. Introducing key mirrors for this purpose will help you avoid nasty typos that are inevitable, especially if you are working with a team of developers.</li>
+<li>You want your IDE to auto-complete string literals that are common in your code. Introducing key mirrors for this purpose will help you avoid nasty typos that are otherwise inevitable, especially if you are working with a team of developers.</li>
 </ul>
 <ul>
 <li>You find yourself typing multiple string literals more than once, and they serve a common purpose.</li>
