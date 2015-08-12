@@ -129,10 +129,7 @@
     <div class="post-content markdown main-content-wrap" itemprop="articleBody">
         <p>It is very likely that in your day-to-day JavaScript programming you will have encountered the problem that is ‘how can I maintain a collection of constants in the form of string literals, and reference these strings by a name?’ If you have posed this question, and are still waiting for an answer, then I am happy to give it to you: key mirrors.</p>
 <h2 id="What_is_a_key_mirror?">What is a key mirror?</h2><p>A key mirror is an object where for each property, the key is the same as the value. They are most useful as a collection of constants that ‘give back’ their own definition, and many languages already provide an integrated solution for this behaviour in the form of an <a href="https://en.wikipedia.org/wiki/Enumerated_type" target="_blank" rel="external">enum</a>. Unfortunately, JavaScript doesn’t… so we use ‘key mirrors’ instead.</p>
-<pre><code>{
-    <span class="attribute">SOME_USEFUL_CONST</span>: <span class="string">'SOME_USEFUL_CONST'</span>,
-    <span class="attribute">ANOTHER_USEFUL_CONST</span>: <span class="string">'ANOTHER_USEFUL_CONST'</span>
-}
+<pre><code><span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    SOME_USEFUL_CONST: <span class="string">'SOME_USEFUL_CONST'</span>,</span><br><span class="line">    ANOTHER_USEFUL_CONST: <span class="string">'ANOTHER_USEFUL_CONST'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
 </code></pre><h2 id="When_should_I_use_a_key_mirror?">When should I use a key mirror?</h2><p>Key mirrors are useful for a number of reasons of course, so here are some use-cases where key mirrors will help you out:</p>
 <ul>
 <li>You want your IDE to auto-complete string literals that are common in your code. Introducing key mirrors for this purpose will help you avoid nasty typos that are inevitable, especially if you are working with a team of developers.</li>
@@ -142,38 +139,17 @@
 </ul>
 <ul>
 <li><p>You want to easily check that a value is ‘legal’.</p>
-<pre><code><span class="keyword">var</span> rgb = {red: <span class="string">'red'</span>, green: <span class="string">'green'</span>, blue: <span class="string">'blue'</span>};
-<span class="keyword">var</span> colour = rgb.red;
-<span class="keyword">var</span> legalValue = !!rgb[<span class="keyword">value</span>];
-</code></pre></li>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rgb = &#123;red: <span class="string">'red'</span>, green: <span class="string">'green'</span>, blue: <span class="string">'blue'</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> colour = rgb.red;</span><br><span class="line"><span class="keyword">var</span> legalValue = !!rgb[value];</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <h2 id="How_do_I_create_a_key_mirror?">How do I create a key mirror?</h2><p>As always, there is more than one solution. So here are a few… take your pick!</p>
 <h3 id="Using_React">Using React</h3><p>The React library comes packaged with a key mirror helper module, <code>react/addons/keyMirror</code>.</p>
-<pre><code><span class="reserved">var</span> keyMirror = <span class="built_in">require</span>(<span class="string">'react/utils/keyMirror'</span>);
-<span class="reserved">var</span> consts = {
-    <span class="attribute">FIRST_KEY</span>: <span class="literal">true</span>,
-    <span class="attribute">SECOND_KEY</span>: <span class="literal">true</span>
-};
-<span class="reserved">var</span> mirror = keyMirror(consts);
-<span class="built_in">console</span>.log(mirror); <span class="regexp">//</span> {<span class="attribute">FIRST_KEY</span>: <span class="string">'FIRST_KEY'</span>, <span class="attribute">SECOND_KEY</span>: <span class="string">'SECOND_KEY'</span>}
+<pre><code><span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> keyMirror = <span class="built_in">require</span>(<span class="string">'react/utils/keyMirror'</span>);</span><br><span class="line"><span class="keyword">var</span> consts = &#123;</span><br><span class="line">    FIRST_KEY: <span class="literal">true</span>,</span><br><span class="line">    SECOND_KEY: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> mirror = keyMirror(consts);</span><br><span class="line"><span class="built_in">console</span>.log(mirror); <span class="comment">// &#123;FIRST_KEY: 'FIRST_KEY', SECOND_KEY: 'SECOND_KEY'&#125;</span></span><br></pre></td></tr></table></figure></span>
 </code></pre><p>But if you aren’t using React, it’s easy to build your own:</p>
 <h3 id="Using_lodash:">Using lodash:</h3><p>We can use the <code>_.reduce</code> method to take any Object or Array and create a key mirror from it. In the case of an Array, we take each element and use its value as the key and value. For an Object we do the same by first using the <code>Object.keys</code> method, which (unsurprisngly) returns an Array of an object’s keys.</p>
-<pre><code><span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'lodash'</span>);
-
-<span class="function"><span class="keyword">function</span> <span class="title">keyMirror</span>(<span class="params">keys</span>) </span>{
-    keys = <span class="built_in">Array</span>.isArray(keys) ? keys : <span class="built_in">Object</span>.keys(keys);
-    <span class="keyword">return</span> _.reduce(keys, <span class="function"><span class="keyword">function</span>(<span class="params">res, v</span>) </span>{
-        res[v] = v;
-        <span class="keyword">return</span> res;
-    }, {});
-}
+<pre><code><span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'lodash'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">keyMirror</span>(<span class="params">keys</span>) </span>&#123;</span><br><span class="line">    keys = <span class="built_in">Array</span>.isArray(keys) ? keys : <span class="built_in">Object</span>.keys(keys);</span><br><span class="line">    <span class="keyword">return</span> _.reduce(keys, <span class="function"><span class="keyword">function</span>(<span class="params">res, v</span>) </span>&#123;</span><br><span class="line">        res[v] = v;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;, &#123;&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
 </code></pre><h3 id="Using_JavaScript:">Using JavaScript:</h3><p>Or if you want to avoid using any libraries, perhaps as you think the other methods are overkill, then create your own from scratch:</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">keyMirror</span><span class="params">(keys)</span> {</span>
-    keys = Array.isArray<span class="params">(keys)</span> ? keys : Object.keys<span class="params">(keys)</span>;
-    var <span class="built_in">mirror</span> = {};
-    keys.forEach<span class="params">(v =&gt; mirror[v] = v)</span>;
-    return <span class="built_in">mirror</span>;
-}
+<pre><code><span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">keyMirror</span>(<span class="params">keys</span>) </span>&#123;</span><br><span class="line">    keys = <span class="built_in">Array</span>.isArray(keys) ? keys : <span class="built_in">Object</span>.keys(keys);</span><br><span class="line">    <span class="keyword">var</span> mirror = &#123;&#125;;</span><br><span class="line">    keys.forEach(v =&gt; mirror[v] = v);</span><br><span class="line">    <span class="keyword">return</span> mirror;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
 </code></pre><h3 id="Using_npm:">Using npm:</h3><p>Check out one of the many <a href="https://www.npmjs.com/search?q=keymirror" target="_blank" rel="external">key mirror libraries published on <code>npm</code></a>.</p>
 
         
