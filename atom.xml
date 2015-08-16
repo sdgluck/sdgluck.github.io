@@ -5,7 +5,7 @@
   <subtitle><![CDATA[sdgluck's blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="sdgluck.github.io//"/>
-  <updated>2015-08-14T14:46:10.763Z</updated>
+  <updated>2015-08-16T12:02:15.539Z</updated>
   <id>sdgluck.github.io//</id>
   
   <author>
@@ -14,48 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title><![CDATA[The CSS Grid Layout]]></title>
-    <link href="sdgluck.github.io/2015/08/12/css-grid-layout/"/>
-    <id>sdgluck.github.io/2015/08/12/css-grid-layout/</id>
-    <published>2015-08-12T16:16:00.000Z</published>
-    <updated>2015-08-14T14:46:10.763Z</updated>
-    <content type="html"><![CDATA[<p>The CSS Grid Layout, another ship in what seems to be a turbulent sea of layout specifications, but which appears to offer a complete solution to the problem of ‘hacky’ CSS layouts. If you are still using floats you’re standing on a sinking ship, if you’ll pardon the pun. It will do the web development community a great deal of good to have a layout spec that is designed for modern interfaces and I am waiting in anticipation for browser vendors to introduce it into their software.</p>
-<p><em>Note: I have not made considerations for vendor-specific implementations of the CSS Grid Layout in this article, but as you will see on <a href="http://caniuse.com/#search=grid" target="_blank" rel="external">caniuse.com</a>, IE is the only browser with support at the moment. Chrome supports the CSS Grid Layout with an <a href="https://developers.google.com/web/updates/2014/03/Get-on-the-CSS-Grid" target="_blank" rel="external">experimental flag</a>.</em></p>
-<h2 id="What_is_the_CSS_Grid_Layout?">What is the CSS Grid Layout?</h2><p>A way to organise content within a document on a webpage. As with all CSS layouts the Grid layout is defined as a value of the <code>display</code> property on an element, which will designate it as a Grid ‘container’. There are grid property values that accomodate both block- and inline-level container elements, for whichever is the appropriate use-case:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.block-grid-container &#123;</span><br><span class="line">    display: grid; // block grid</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.inline-grid-container &#123;</span><br><span class="line">    display: inline-grid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>But of course this alone won’t suffice. We need to give the grid some <em>definition</em>, a structure that will allow us to position children within it. With a Grid this means columns and rows, and in this way we can think of a Grid like an HTML <code>&lt;table&gt;</code> and its accompanying <code>display: table</code> layout, however a Grid is leaps and bounds more flexible because it’s designed for interfaces, unlike tables (and floats!). Like floats however, all structure of a Grid is defined in your stylesheet, just where it belongs.</p>
-<h3 id="Container_properties">Container properties</h3><p>So what can we do with a Grid container? Let’s take a look at the available properties:</p>
-<h5 id="grid-template-rows"><code>grid-template-rows</code></h5><p>The number of rows in the grid. But be aware that to use get the best out of Grids, you want to give it more than just a whole number! (See <em>flexible lengths</em> below.)</p>
-<pre><code>grid-<span class="keyword">template</span>-rows: <span class="number">1</span>;
-</code></pre><h5 id="grid-template-columns"><code>grid-template-columns</code></h5><p>The number of columns in the grid</p>
-<h5 id="grid-template-areas"><code>grid-template-areas</code></h5><p>Create named areas within the layout using a string literal for each row and a word for each area or ‘grid item’</p>
-<h5 id="grid-template"><code>grid-template</code></h5><p>Define values for both <code>grid-template-columns</code> and <code>grid-template-rows</code> properties.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#container</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">grid-template-columns</span>:<span class="value"> auto <span class="number">1</span>fr auto</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">grid-template-rows</span>:<span class="value"> auto <span class="number">1</span>f</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">grid-template</span>:<span class="value"> auto <span class="number">1</span>fr auto / auto <span class="number">1</span>fr</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Flexible_length">Flexible length</h3><p>The Grid layout introduces a new measurement called <em>flexible length</em>, whose abbreviated unit is <em>fr</em>. It represents a ‘fraction of the free space within the container’. But there are some caveats as not all grid items require their size to be defined by a <em>flexible length</em>. </p>
-<h3 id="Child_properties">Child properties</h3><h3 id="Good_to_know">Good to know</h3><p>Straight from <a href="http://www.w3.org/TR/css3-grid-layout/" target="_blank" rel="external">the specification</a>, here are some useful tidbits that will keep you from scratching your head in confusion:</p>
-<ul>
-<li>You cannot <code>float</code> or <code>clear</code> a Grid item.</li>
-<li>You cannot <code>vertical-align</code> a Grid item.</li>
-<li><code>::first-line</code> and <code>::first-letter</code> pseudo-elements do not apply to Grid containers, and grid containers do not contribute a first formatted line or first letter to their ancestors.</li>
-<li>A Grid container is <em>positioned according to its context</em> and <em>sized according to its contents</em>, which means that it will be as large as its rows and columns combined.</li>
-<li>Grid items are stacked by their natural order within the document or can be given an explicit z-index using the <code>z-index</code> property.</li>
-<li>Just like with other layout elements, a Grid item whose overflow property is defined as <code>overflow: visible</code> or similar will expand to contain its contents.</li>
-</ul>
-<h2 id="Advantages_over_the_Flex_Layout">Advantages over the Flex Layout</h2><h2 id="Disadvantages_over_the_Flex_layout">Disadvantages over the Flex layout</h2><p>The CSS Grid Layout is still a working draft and so browsers implementing it are doing so for the convenience of giving developers an opportunity to try it out, which unfortunately means that using it in production is currently not an option. The Flex layout however is available to use in production as of six months ago, which gives it a big head start. What can the Flex layout do that the Grid layout can’t?</p>
-<ul>
-<li><h2 id="It’s_a_wrap!">It’s a wrap!</h2><p>That ends our discussion of the CSS Grid Layout for now. Eveything else you need to know can be conveniently found on the <a href="http://www.w3.org/TR/css3-grid-layout/" target="_blank" rel="external">w3c’s Grid Layout spec webpage</a>. It is still a working draft and being updated regularly, so check back often to keep yourself above water.</p>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>The CSS Grid Layout, another ship in what seems to be a turbulent sea of layout specifications, but which appears to offer a complete sol]]>
-    </summary>
-    
-      <category term="css" scheme="sdgluck.github.io/tags/css/"/>
-    
-  </entry>
   
   <entry>
     <title><![CDATA[What is a Key Mirror?]]></title>
