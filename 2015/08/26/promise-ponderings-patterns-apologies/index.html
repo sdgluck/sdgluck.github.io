@@ -124,8 +124,8 @@
         <h1 class="post-title" itemprop="headline">Promise Ponderings, (Anti-)Patterns, and Apologies</h1>
     
     <div class="post-meta">
-    <time  itemprop="datePublished" content="Mon Aug 24 2015 17:16:00 GMT+0100">
-        Aug 24, 2015
+    <time  itemprop="datePublished" content="Wed Aug 26 2015 17:16:00 GMT+0100">
+        Aug 26, 2015
     </time>
     
 </div>
@@ -228,7 +228,7 @@
 <p><em>(2)</em> Then log the return of the statement (<a href="https://i.imgur.com/iQSFpPo.jpg" target="_blank" rel="external">add both 1 and 2 to the call stack <em>at the same time</em></a>). This executes <em>before</em> the Promise attempts to call the success handler given to it with <code>Promise#then</code>, as a Promise waits for the call stack to be empty before invoking all handlers. </p>
 <p><em>(3)</em> Finally, once the call stack is empty, the Promise resolves as it accepts the result of the call to <code>Promise#resolve</code> because a <code>new Array</code> is not <em>callable</em>.</p>
 <p><span id="section2.11"></span></p>
-<h4 id="2-11_“Generally,_what_rules_should_I_follow_for_handling_errors?”">2.11 “Generally, what rules should I follow for handling errors?”</h4><p><strong>Always</strong> catch errors using the <code>Promise#catch</code> instance method at the end of any Promise chain. <code>Promise#catch</code> is simply sugar for the following:</p>
+<h4 id="2-11_“Generally,_what_rules_should_I_follow_for_handling_errors?”">2.11 “Generally, what rules should I follow for handling errors?”</h4><p><strong>Always</strong> catch errors using the <code>Promise#catch</code> instance method at the end of any Promise chain.</p>
 <figure class="highlight js"><figcaption><span>Gotta catch `em all!</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">saveUser()</span><br><span class="line">    .then(notifyUserOfSuccess)</span><br><span class="line">    .catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">        logError(err);</span><br><span class="line">        notifyUserOfError(err);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
 <p><span></span></p>
 <p>And throw errors where they useful to the user or for debugging. If something has failed to save and you are auditing, for example, do you need to tell the user that it failed to save <em>half-way</em> through the process? Or just that it has failed to save altogether? Probably the former is most appropriate for debugging and the latter for the user.</p>
@@ -313,7 +313,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/29/request-idle-callback/"  data-tooltip="What is requestIdleCallback?">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -331,17 +331,17 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=sdgluck.github.io/2015/08/24/promise-ponderings-patterns-apologies/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=sdgluck.github.io/2015/08/26/promise-ponderings-patterns-apologies/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=sdgluck.github.io/2015/08/24/promise-ponderings-patterns-apologies/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=sdgluck.github.io/2015/08/26/promise-ponderings-patterns-apologies/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=sdgluck.github.io/2015/08/24/promise-ponderings-patterns-apologies/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=sdgluck.github.io/2015/08/26/promise-ponderings-patterns-apologies/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -376,7 +376,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/29/request-idle-callback/"  data-tooltip="What is requestIdleCallback?">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -394,17 +394,17 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=sdgluck.github.io/2015/08/24/promise-ponderings-patterns-apologies/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=sdgluck.github.io/2015/08/26/promise-ponderings-patterns-apologies/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=sdgluck.github.io/2015/08/24/promise-ponderings-patterns-apologies/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=sdgluck.github.io/2015/08/26/promise-ponderings-patterns-apologies/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=sdgluck.github.io/2015/08/24/promise-ponderings-patterns-apologies/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=sdgluck.github.io/2015/08/26/promise-ponderings-patterns-apologies/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
